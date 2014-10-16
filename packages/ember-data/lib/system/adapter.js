@@ -446,11 +446,13 @@ var Adapter = Ember.Object.extend({
     The default implementation returns the records as a single group.
 
     @method groupRecordsForFindMany
+    @param {DS.Store} store
+    @param {subclass of DS.Model} type
     @param {Array} records
     @return {Array}  an array of arrays of records, each of which is to be
                       loaded separately by `findMany`.
   */
-  groupRecordsForFindMany: function (store, records) {
+  groupRecordsForFindMany: function (store, type, records) {
     return [records];
   }
 });

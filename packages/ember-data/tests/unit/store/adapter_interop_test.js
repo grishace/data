@@ -525,7 +525,7 @@ test("the store calls adapter.findMany according to groupings returned by adapte
   var Person = DS.Model.extend();
 
   var adapter = TestAdapter.extend({
-    groupRecordsForFindMany: function (store, records) {
+    groupRecordsForFindMany: function (store, type, records) {
       return [
         [records[0]],
         [records[1], records[2]]
@@ -572,7 +572,7 @@ test("the promise returned by `scheduleFetch`, when it resolves, does not depend
   var davidResolved = false;
 
   var adapter = TestAdapter.extend({
-    groupRecordsForFindMany: function (store, records) {
+    groupRecordsForFindMany: function (store, type, records) {
       return [
         [records[0]],
         [records[1]]
@@ -619,7 +619,7 @@ test("the promise returned by `scheduleFetch`, when it rejects, does not depend 
   var davidResolved = false;
 
   var adapter = TestAdapter.extend({
-    groupRecordsForFindMany: function (store, records) {
+    groupRecordsForFindMany: function (store, type, records) {
       return [
         [records[0]],
         [records[1]]

@@ -586,7 +586,7 @@ Store = Ember.Object.extend({
     if (recordResolverPairs.length === 1) {
       _fetchRecord(recordResolverPairs[0]);
     } else if (shouldCoalesce) {
-      var groups = adapter.groupRecordsForFindMany(this, records);
+      var groups = adapter.groupRecordsForFindMany(this, type, records);
       forEach(groups, function (groupOfRecords) {
         var requestedRecords = Ember.A(groupOfRecords);
         var ids = requestedRecords.mapBy('id');
